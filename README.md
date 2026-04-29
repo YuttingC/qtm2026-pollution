@@ -15,6 +15,7 @@ https://storymaps.arcgis.com/stories/fa3c918421c042489f78d71f85d432a5
 **Does it?**
 
 This project tests the pollution → disease hypothesis at the census-tract level across Georgia.  
+
 The headline result:
 
 > **Outdoor PM2.5 alone does not explain Georgia’s respiratory disease geography.**
@@ -56,8 +57,8 @@ jupyter notebook
 
 ### Step 3 - Run notebooks (in order)
 
-1. `DataCleaning.ipynb`
-2. `AnalysisCode.ipynb`
+1. `00_DataCleaning.ipynb`
+2. `01_AnalysisCode.ipynb`
 
 ### Step 4 - Verify Outputs
 
@@ -114,12 +115,8 @@ pip install pandas numpy matplotlib seaborn scipy geopandas
 
 | File | Location | Description |
 |------|----------|-------------|
-| `pm25_netcdf_extracted/` | `Cleaning/` | NASA PM2.5 raw data |
-| `pm25_tract_2018_2022.csv` | `Cleaning/` | Tract-level PM2.5 |
-| `socioeconomic_panel.csv` | `Cleaning/` | ACS socioeconomic variables |
-| `pm25_11-20.csv` | `Cleaning/` | CDC PM2.5 (2011–2020) |
-| `merged_regression_ready.csv` | `Cleaned/` | Final merged dataset |
-| `final_merged_asthma_copd.csv` | `Cleaned/` | Health + pollution dataset |
+| `merged_regression_ready.csv` | `Cleaned/` | Final Merged Dataset with NASA PM2.5 Data + Health|
+| `final_merged_asthma_copd.csv` | `Cleaned/` | Final Merged Dataset with Cleaned CDC Daily PM2.5 Data + Health + Socioeconomic |
 
 ---
 
@@ -159,7 +156,7 @@ Each dataset required cleaning, transformation, and integration before analysis:
 ### Spatial Choices
 - Unit of analysis: **Census tract**
   - Provides higher resolution than county-level analysis
-- Used **TIGER/Line shapefiles (2018)**
+- Used **TIGER/Line shapefiles (2019) and Tiger/Line shapefiles (2020)**
 - Applied **zonal statistics** to map raster PM2.5 → tract level
 
 ### Statistical Choices
